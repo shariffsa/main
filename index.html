@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Interactive Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my GitHub Pages site.</p>
+  <h1>Welcome to My GitHub Page</h1>
+  <p id="message">Click the button below to change this message.</p>
+  <button onclick="changeMessage()">Change Message</button>
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <script>
+    function changeMessage() {
+      const messages = [
+        "Hello, visitor!",
+        "Hope you're having a great day!",
+        "GitHub Pages is fun!",
+        "Thanks for stopping by!"
+      ];
+      const msg = document.getElementById("message");
+      msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
